@@ -21,26 +21,32 @@ import { logoutUser } from '../../redux/authSlice';
 
 const sidebar = [
   {
+    path: '/dashboard/',
     title: 'Dashboard',
     Icon: <Database />,
   },
   {
+    path: '/dashboard/home',
     title: 'Home',
     Icon: <HomeIcon />,
   },
   {
+    path: '/dashboard/users',
     title: 'Users',
     Icon: <User2 />,
   },
   {
+    path: '/dashboard/products',
     title: 'Products',
     Icon: <Folder />,
   },
   {
+    path: '/dashboard/posts',
     title: 'Posts',
     Icon: <FileUpIcon />,
   },
   {
+    path: '/dashboard/todos',
     title: 'Todos',
     Icon: <Settings />,
   },
@@ -94,9 +100,9 @@ const Sidebar = () => {
         {sidebar.map((item, index) => {
           return (
             <NavLink
+              to={`${item.path}`}
               onClick={() => handleSidebarItem(item)}
               key={index}
-              to="/"
               className={`flex items-center gap-2 bg-gray-100 rounded-md py-4 px-4 hover:bg-gray-200`}
             >
               <span> {item.Icon} </span>
