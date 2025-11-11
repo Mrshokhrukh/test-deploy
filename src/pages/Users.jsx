@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { ContextData } from '../components/ContextData';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'antd';
 
 const statuses = ['pending', 'rejected', 'success'];
 
@@ -65,11 +66,7 @@ const Users = () => {
           state.data.length > 0 &&
           state.data.map((item, index) => {
             return (
-              <tr
-                key={item.id}
-                onClick={() => handleUserDetailsNavigate(item.id)}
-                className="hover:bg-gray-300 cursor-pointer"
-              >
+              <tr key={item.id} className="hover:bg-gray-100 cursor-pointer">
                 <td>{index + 1}</td>
                 <td className="item">
                   <img
@@ -93,6 +90,12 @@ const Users = () => {
                   >
                     del
                   </button>
+                  <Button
+                    type="primary"
+                    onClick={() => handleUserDetailsNavigate(item.id)}
+                  >
+                    View Details
+                  </Button>
                 </td>
               </tr>
             );

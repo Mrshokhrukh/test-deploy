@@ -3,10 +3,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import sidebaReducer from './redux/sidebarSlice.js';
 import authReducer from './redux/authSlice.js';
+import productReducer from './redux/productsSlice.js';
 
 export const store = configureStore({
   reducer: {
     sidebar: sidebaReducer,
     auth: authReducer,
+    product: productReducer,
   },
 });

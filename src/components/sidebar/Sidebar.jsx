@@ -83,7 +83,7 @@ const Sidebar = () => {
     <div
       className={`${
         isOpen ? 'w-[350px]' : 'w-[120px]'
-      } p-6 relative border-r border-r-gray-300 pt-16 transition-all duration-300`}
+      } p-6 sticky top-0 border-r border-r-gray-300 pt-16 transition-all duration-300`}
     >
       <button
         onClick={() => toggleSidbar(isOpen ? 'close' : 'open')}

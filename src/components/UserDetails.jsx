@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { Button } from 'antd';
+import { ArrowLeftIcon } from 'lucide-react';
+import CalendarApp from './Calendar';
 
 const UserDetails = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -21,6 +25,11 @@ const UserDetails = () => {
 
   return (
     <div>
+      <div className="p-12">
+        <Button onClick={() => navigate(-1)}>
+          <ArrowLeftIcon /> Back{' '}
+        </Button>
+      </div>
       <div className="p-12 gap-6">
         <motion.div
           key={user.id}
@@ -45,6 +54,8 @@ const UserDetails = () => {
                 {/* {user.address}, {user.city} */}
               </p>
             </div>
+
+            <CalendarApp /> 
           </div>
         </motion.div>
       </div>
